@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        {% for i in libro_lista %}
+        <div class="col-md-2">
+            <div class="card" style="width: 10rem; height: 30rem">
+                <img class="card-img-top" src="{{i.img.url}}" alt="Card image cap" width="70px" height="230px">
+                <div class="card-body">
+                <h5 class="card-title">{{i.name}}</h5>
+                <p class="card-text">{{i.description}}</p>
+                <a href="{% url 'applibros:detail' i.id %}" class="btn btn-primary">Ver más</a>
+  </div>
+</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="text-center">
+    <a class="btn btn-warning" href="{% url 'applibros:add_libro' %}">Añadir</a>
+</div>
+{% endblock %}
